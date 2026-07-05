@@ -6,7 +6,7 @@ import { getProducts } from '../../products/services/productService.js'
 import { useAuthStore } from '../../auth/store/auth-store.js'
 import axios from 'axios'
 
-const api = axios.create({ baseURL: '/api/v1' })
+const api = axios.create({ baseURL: (import.meta.env.VITE_API_URL || '') + '/api/v1' })
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('access')
   if (token) config.headers.Authorization = `Bearer ${token}`
