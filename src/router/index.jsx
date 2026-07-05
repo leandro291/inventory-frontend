@@ -1,5 +1,8 @@
 import { createBrowserRouter, Navigate } from 'react-router'
 import { MainPage } from '../common/layouts/main_page.jsx'
+import { ProtectedRoute } from '../features/pages/auth/components/protected_route.jsx'
+import { Login } from '../app/auth/login.jsx'
+import { Register } from '../app/auth/register.jsx'
 import { Home } from '../app/home/home.jsx'
 import { Products } from '../app/products/products.jsx'
 import { Categories } from '../app/categories/categories.jsx'
@@ -9,10 +12,19 @@ import { Repositories } from '../app/repositories/repositories.jsx'
 import { Roles } from '../app/roles/roles.jsx'
 import { Suppliers } from '../app/suppliers/suppliers.jsx'
 import { Movements } from '../app/movements/movements.jsx'
+
 export const router = createBrowserRouter([
   {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+  },
+  {
     path: '/',
-    element: <MainPage />,
+    element: <ProtectedRoute><MainPage /></ProtectedRoute>,
     children: [
       {
         index: true,
