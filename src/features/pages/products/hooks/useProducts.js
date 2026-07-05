@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getProducts } from '../services/productService.js'
+import { getProducts, createProduct as apiCreate } from '../services/productService.js'
 
 export function useProducts() {
   const [products, setProducts] = useState([])
@@ -13,5 +13,13 @@ export function useProducts() {
       .finally(() => setLoading(false))
   }, [])
 
-  return { products, loading, error }
+  function createProduct(formData) {
+    return apiCreate(formData)
+      .then((newProduct) => {
+        setProducts((prev) => [...prev, newProduct])
+        return newProduct
+      })
+  }
+
+  return { products, loading, error, createProduct }
 }
