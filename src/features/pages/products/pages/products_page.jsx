@@ -1,9 +1,15 @@
 import { useProducts } from '../hooks/useProducts.js'
+import { useCategories } from '../hooks/useCategories.js'
+import { useProductForm } from '../hooks/useProductForm.js'
 import { ProductFilters } from '../components/ProductFilters/product_filters.jsx'
 import { ProductTable } from '../components/ProductTable/product_table.jsx'
+import { ProductModal } from '../components/ProductModal/product_modal.jsx'
+import { ProductForm } from '../components/ProductForm/product_form.jsx'
 
 export function ProductsPage() {
-  const { products, loading, error } = useProducts()
+  const { products, loading, error, createProduct } = useProducts()
+  const { categories } = useCategories()
+  const form = useProductForm({ onCreate: createProduct })
 
   return (
     <>
@@ -18,7 +24,7 @@ export function ProductsPage() {
 
       <div className="rounded-xl border border-gray-200 bg-white">
         <div className="border-b border-gray-100 px-6 py-4">
-          <ProductFilters />
+          <ProductFilters onNewProduct={form.handleOpen} />
         </div>
 
         {error ? (
@@ -34,6 +40,19 @@ export function ProductsPage() {
           </div>
         )}
       </div>
+
+      <ProductModal open={form.modalOpen} onClose={form.handleClose} title="Nuevo producto">
+        <ProductForm
+          form={form.form}
+          categories={categories}
+          submitting={form.submitting}
+          error={form.submitError}
+          onChange={form.handleChange}
+          onImageChange={form.handleImage}
+          onSubmit={form.handleSubmit}
+          onCancel={form.handleClose}
+        />
+      </ProductModal>
     </>
   )
 }
