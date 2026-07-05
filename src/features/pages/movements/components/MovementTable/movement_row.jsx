@@ -3,9 +3,9 @@ export function MovementRow({ movement }) {
     <tr className="border-b border-gray-100 hover:bg-gray-50">
       <td className="px-4 py-3 text-sm font-medium text-gray-900">{movement.id_movement}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{movement.observation}</td>
-      <td className="px-4 py-3 text-sm text-gray-500">{movement.id_type_movement}</td>
-      <td className="px-4 py-3 text-sm text-gray-500">{movement.id_supplier}</td>
-      <td className="px-4 py-3 text-sm text-gray-500">{movement.id_repository}</td>
+      <td className="px-4 py-3 text-sm text-gray-500">{movement.type_movement?.name}</td>
+      <td className="px-4 py-3 text-sm text-gray-500">{movement.supplier?.name}</td>
+      <td className="px-4 py-3 text-sm text-gray-500">{movement.repository?.name}</td>
       <td className="px-4 py-3">
         <span className="inline-flex rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
           Activo
