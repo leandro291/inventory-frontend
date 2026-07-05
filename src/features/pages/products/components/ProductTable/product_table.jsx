@@ -1,8 +1,6 @@
 import { ProductRow } from './product_row.jsx'
 
 export function ProductTable({ products, loading }) {
-
-  console.log(products)
   
   if (loading) {
     return (
