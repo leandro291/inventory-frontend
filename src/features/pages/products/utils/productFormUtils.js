@@ -13,7 +13,7 @@ export function buildFormData(form, image) {
   data.append('description', form.description)
   data.append('brand', form.brand)
   data.append('purchase_price', form.purchase_price)
-  data.append('sales_price', form.sale_price)
+  data.append('sale_price', form.sale_price)
   data.append('id_category', form.id_category)
   if (image) data.append('image', image)
   return data
