@@ -3,6 +3,7 @@ import { EMPTY_FORM, EMPTY_DETAIL } from '../utils/movementFormUtils.js'
 import { getSuppliers } from '../../suppliers/services/supplierService.js'
 import { getRepositories } from '../../repositories/services/repositoryService.js'
 import { getProducts } from '../../products/services/productService.js'
+import { useAuthStore } from '../../auth/store/auth-store.js'
 import axios from 'axios'
 
 const api = axios.create({ baseURL: '/api/v1' })
@@ -16,6 +17,7 @@ api.interceptors.response.use((r) => r.data, (e) => Promise.reject(new Error(e.r
 function getTypeMovements() { return api.get('/type-movement') }
 
 export function useMovementForm({ onCreate }) {
+  const id_user = useAuthStore((s) => s.user?.id_user)
   const [form, setForm] = useState(EMPTY_FORM)
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(null)
@@ -50,12 +52,19 @@ export function useMovementForm({ onCreate }) {
 
   function handleSubmit(e) {
     e.preventDefault(); setSubmitError(null); setSubmitting(true)
+
+    if (!id_user) {
+      setSubmitError('Sesión expirada. Cierra sesión y vuelve a iniciar.')
+      setSubmitting(false)
+      return
+    }
+
     onCreate({
       observation: form.observation || null,
       id_supplier: Number(form.id_supplier),
       id_type_movement: Number(form.id_type_movement),
       id_repository: Number(form.id_repository),
-      id_user: 1,
+      id_user,
       movement_details: form.details.map((d) => ({
         id_product: Number(d.id_product),
         quantity: Number(d.quantity),
