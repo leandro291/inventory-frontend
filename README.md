@@ -1,16 +1,50 @@
-# React + Vite
+# Sistema de Gestión de Inventarios - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web para la gestión de inventarios, productos, categorías, empresas, repositorios, roles, proveedores y movimientos.
 
-Currently, two official plugins are available:
+## Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** con Vite
+- **Tailwind CSS v4**
+- **React Router v8**
+- **Zustand** (manejo de estado)
+- **Axios** (peticiones HTTP)
+- **Oxlint** (linting)
 
-## React Compiler
+## Scripts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run dev      # Iniciar servidor de desarrollo
+npm run build    # Construir para producción
+npm run preview  # Previsualizar build
+npm run lint     # Ejecutar linter
+```
 
-## Expanding the Oxlint configuration
+## Estructura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```
+src/
+├── app/             # Módulos de la aplicación
+│   ├── auth/        # Autenticación (login/register)
+│   ├── products/    # Productos
+│   ├── categories/  # Categorías
+│   ├── inventory/   # Inventario
+│   ├── companies/   # Empresas
+│   ├── repositories/# Repositorios
+│   ├── roles/       # Roles
+│   ├── suppliers/   # Proveedores
+│   └── movements/   # Movimientos
+├── common/          # Componentes, layouts y constantes compartidas
+├── features/pages/  # Stores y componentes específicos
+└── router/          # Configuración de rutas
+```
+
+## Variables de entorno
+
+| Variable       | Descripción                     |
+|----------------|---------------------------------|
+| `VITE_API_URL` | URL base de la API (backend)    |
+
+## Despliegue
+
+Configurado para Vercel con rewrites SPA.
