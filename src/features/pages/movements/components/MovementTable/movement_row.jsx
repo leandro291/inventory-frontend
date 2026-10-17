@@ -1,7 +1,7 @@
 export function MovementRow({ movement }) {
   return (
     <tr className="border-b border-gray-100 hover:bg-gray-50">
-      <td className="px-4 py-3 text-sm font-medium text-gray-900">{movement.id_movement}</td>
+      <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900">{movement.id_movement}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{movement.observation}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{movement.type_movement?.name}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{movement.supplier?.name}</td>

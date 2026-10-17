@@ -1,7 +1,7 @@
 export function InventoryFilters({ onNewInventory }) {
   return (
-    <div className="flex items-center gap-4">
-      <div className="relative flex-1">
+    <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+      <div className="relative w-full sm:w-auto sm:flex-1">
         <svg
           className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
           fill="none"
@@ -19,7 +19,7 @@ export function InventoryFilters({ onNewInventory }) {
       </div>
       <button
         onClick={onNewInventory}
-        className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+        className="flex items-center gap-2 whitespace-nowrap rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
       >
         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

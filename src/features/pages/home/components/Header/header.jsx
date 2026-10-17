@@ -1,12 +1,14 @@
 import { StatCard } from './stat_card.jsx'
 
+const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+
 export function Header({ stats, loading, error }) {
   if (loading) {
     return (
       <>
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
         <p className="mt-1 text-sm text-gray-500">Resumen del sistema de inventario</p>
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="h-24 animate-pulse rounded-xl bg-gray-200" />
           ))}
@@ -28,7 +30,7 @@ export function Header({ stats, loading, error }) {
     <>
       <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
       <p className="mt-1 text-sm text-gray-500">Resumen del sistema de inventario</p>
-      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         <StatCard
           label="Productos"
           value={stats.total_products}
@@ -37,7 +39,8 @@ export function Header({ stats, loading, error }) {
         />
         <StatCard
           label="En inventario"
-          value={stats.total_stock}
+          value={stats.total_stock.toLocaleString('es')}
+          hint={`Valor ${currency.format(stats.inventory_value)}`}
           icon="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
           color="green"
         />

@@ -6,7 +6,7 @@ export function ProductRow({ product }) {
   return (
     <>
       <tr className="border-b border-gray-100 hover:bg-gray-50">
-        <td className="px-4 py-3 text-sm font-medium text-gray-900">
+        <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900">
           {product.code}
         </td>
         <td className="px-4 py-3 text-sm text-gray-700">{product.name}</td>

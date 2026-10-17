@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
-import { getProducts, getInventories, getMovements, getSuppliers } from '../services/homeService.js'
+import {
+  getProducts,
+  getInventories,
+  getMovements,
+  getSuppliers,
+  getCategories,
+  getRepositories,
+} from '../services/homeService.js'
 import { buildDashboardData } from '../utils/homeUtils.js'
 
 export function useHome() {
@@ -13,9 +20,11 @@ export function useHome() {
       getInventories(),
       getMovements(),
       getSuppliers(),
+      getCategories(),
+      getRepositories(),
     ])
-      .then(([products, inventories, movements, suppliers]) => {
-        setStats(buildDashboardData(products, inventories, movements, suppliers))
+      .then(([products, inventories, movements, suppliers, categories, repositories]) => {
+        setStats(buildDashboardData({ products, inventories, movements, suppliers, categories, repositories }))
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))

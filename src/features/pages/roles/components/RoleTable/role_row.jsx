@@ -1,7 +1,7 @@
 export function RoleRow({ role }) {
   return (
     <tr className="border-b border-gray-100 hover:bg-gray-50">
-      <td className="px-4 py-3 text-sm font-medium text-gray-900">{role.name}</td>
+      <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900">{role.name}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{role.description}</td>
       <td className="px-4 py-3">
         <span className="inline-flex rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">

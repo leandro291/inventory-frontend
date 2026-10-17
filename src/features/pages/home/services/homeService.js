@@ -20,3 +20,5 @@ export function getProducts() { return api.get('/product') }
 export function getInventories() { return api.get('/inventory') }
 export function getMovements() { return api.get('/movement') }
 export function getSuppliers() { return api.get('/supplier') }
+export function getCategories() { return api.get('/category') }
+export function getRepositories() { return api.get('/repository') }

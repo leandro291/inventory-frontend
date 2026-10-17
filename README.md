@@ -33,9 +33,9 @@ Entra a la [demo](https://inventory-frontend-mu-fawn.vercel.app) con la cuenta d
 |-----------|------------|
 | ![Productos](docs/screenshots/products.png) | ![Inventario](docs/screenshots/inventory.png) |
 
-| Movimientos |
-|-------------|
-| ![Movimientos](docs/screenshots/movements.png) |
+| Movimientos | Móvil: dashboard y menú |
+|-------------|-------------------------|
+| ![Movimientos](docs/screenshots/movements.png) | <img src="docs/screenshots/dashboard-mobile.png" alt="Dashboard en móvil" width="180"> <img src="docs/screenshots/menu-mobile.png" alt="Menú lateral en móvil" width="180"> |
 
 ## Tecnologías
 
@@ -44,6 +44,7 @@ Entra a la [demo](https://inventory-frontend-mu-fawn.vercel.app) con la cuenta d
 - **React Router v8**
 - **Zustand** (manejo de estado)
 - **Axios** (peticiones HTTP)
+- **TanStack Charts** (gráficos del dashboard)
 - **Oxlint** (linting)
 
 ## Scripts

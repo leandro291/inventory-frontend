@@ -1,7 +1,7 @@
 export function CompanyRow({ company }) {
   return (
     <tr className="border-b border-gray-100 hover:bg-gray-50">
-      <td className="px-4 py-3 text-sm font-medium text-gray-900">{company.name}</td>
+      <td className="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900">{company.name}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{company.ruc}</td>
       <td className="px-4 py-3 text-sm text-gray-500">{company.address}</td>
       <td className="px-4 py-3">

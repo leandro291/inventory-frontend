@@ -3,7 +3,6 @@ import { MainPage } from '../common/layouts/main_page.jsx'
 import { ProtectedRoute } from '../features/pages/auth/components/protected_route.jsx'
 import { Login } from '../app/auth/login.jsx'
 import { Register } from '../app/auth/register.jsx'
-import { Home } from '../app/home/home.jsx'
 import { Products } from '../app/products/products.jsx'
 import { Categories } from '../app/categories/categories.jsx'
 import { Inventory } from '../app/inventory/inventory.jsx'
@@ -32,7 +31,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'dashboard',
-        element: <Home />,
+        // Los gráficos pesan ~150 kB: solo se descargan al entrar al dashboard.
+        lazy: async () => ({ Component: (await import('../app/home/home.jsx')).Home }),
       },
       {
         path: 'products',
