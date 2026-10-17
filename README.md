@@ -13,6 +13,30 @@
   <a href="https://github.com/leandro291/inventory-backend"><img src="https://img.shields.io/badge/Backend-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Backend"></a>
 </p>
 
+## Demo
+
+Entra a la [demo](https://inventory-frontend-mu-fawn.vercel.app) con la cuenta de prueba:
+
+| Email | Contraseña |
+|-------|------------|
+| `user@demo.com` | `123` |
+
+> El backend corre en Render (plan gratuito): la primera carga puede tardar hasta un minuto.
+
+## Capturas
+
+| Login | Dashboard |
+|-------|-----------|
+| ![Login](docs/screenshots/login.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+
+| Productos | Inventario |
+|-----------|------------|
+| ![Productos](docs/screenshots/products.png) | ![Inventario](docs/screenshots/inventory.png) |
+
+| Movimientos |
+|-------------|
+| ![Movimientos](docs/screenshots/movements.png) |
+
 ## Tecnologías
 
 - **React 19** con Vite

@@ -60,6 +60,17 @@ export function LoginPage() {
             <Link to="/register" className="font-medium text-indigo-600 hover:text-indigo-500">Regístrate</Link>
           </p>
         </form>
+
+        <div className="mt-4 rounded-xl border border-indigo-100 bg-indigo-50 p-4 text-center text-sm">
+          <p className="font-medium text-indigo-900">Cuenta de demostración</p>
+          <p className="mt-1 text-indigo-700">
+            <code>user@demo.com</code> / <code>123</code>
+          </p>
+          <button type="button" onClick={() => { setEmail('user@demo.com'); setPassword('123') }}
+            className="mt-2 font-medium text-indigo-600 hover:text-indigo-500">
+            Usar estas credenciales
+          </button>
+        </div>
       </div>
     </div>
   )
